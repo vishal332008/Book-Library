@@ -1,0 +1,44 @@
+{
+  "book1": {
+    "name": "The Lord of the Rings",
+    "pages": 285,
+    "author": "J.R.R.Tolkien",
+    "available": "yes",
+    "taken_by": "None"
+  },
+  "book2": {
+    "name": "Harry Potter",
+    "pages": 357,
+    "author": "J.K.Rowling",
+    "available": "yes",
+    "taken_by": "None"
+  },
+  "book3": {
+    "name": "The Kite Runner",
+    "pages": 274,
+    "author": "Khaled Hosseini",
+    "available": "yes",
+    "taken_by": "None"
+  },
+  "book4": {
+    "name": "To Kill a Mockingbird",
+    "pages": 319,
+    "author": "Harper Lee",
+    "available": "yes",
+    "taken_by": "None"
+  },
+  "book5": {
+    "name": "The Book Thief",
+    "pages": 319,
+    "author": "Markus Zusak",
+    "available": "yes",
+    "taken_by": "None"
+  },
+  "book6": {
+    "name": "Cringe Rhymes",
+    "pages": "1000",
+    "author": "Cocomelon",
+    "available": "yes",
+    "taken_by": "None"
+  }
+}

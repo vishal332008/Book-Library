@@ -1,0 +1,14 @@
+{
+  "student1": {
+    "name": "Vishal",
+    "email": "vishal@gmail.com",
+    "no_of_books": 0,
+    "books_taken": []
+  },
+  "student2": {
+    "name": "Vishal",
+    "email": "etnjrfmd@gmail.com",
+    "no_of_books": 0,
+    "books_taken": []
+  }
+}
