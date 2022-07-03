@@ -72,6 +72,7 @@ class Library():
                                         j.close()
                                     with open("students_data.json","w") as j:
                                         s_data[z]["books_taken"].append(book_name)
+                                        s_data[z]["no_of_books"] = s_data[z]["no_of_books"] + 1
                                         json.dump(s_data,j,indent = 2)
                                         j.close()
 
@@ -114,6 +115,7 @@ class Library():
 
                                         with open("students_data.json","w") as j:
                                             s_data[z]["books_taken"].remove(book_name)
+                                            s_data[z]["no_of_books"] = s_data[z]["no_of_books"] - 1
                                             json.dump(s_data,j,indent = 2)
                                             j.close()
 
