@@ -1,4 +1,5 @@
 import json
+import re
 
 # pylint: disable-all
 
@@ -95,6 +96,7 @@ class Library():
             data = json.load(f)
             book_name = input("Enter the Name of the book : ")
             count = 0
+            
             with open("students_data.json","r") as i:
                 s_data = json.load(i)
                 count1 = 0
@@ -138,10 +140,12 @@ class Library():
 
     def search_book(self) -> None:
         book_name = input("Search for a Book : ")
+        
         with open("books_data.json") as f:
             data = json.load(f)
             print("Related Books : ")
             count = 0
+            
             for i in data:
                 if book_name.lower() in data[i]["name"].lower():
                     print(data[i]["name"])
@@ -155,6 +159,7 @@ class Library():
         book_name  = input("Enter the Book Name : ")
         book_pages = input("Enter the Number of Pages : ")
         book_author = input("Enter the Author of the Book : ")
+        
         with open("books_data.json") as f:
             data = json.load(f)
             no_of_books = len(data)
@@ -175,15 +180,22 @@ class Library():
     def register_student(self):
         student_name  = input("Enter the Student Name : ")
         student_email = input("Enter the Student Email : ")
+        
         with open("students_data.json") as f:
             data = json.load(f)
             no_of_students = len(data)
             check = 0
+            
             for i in data:
                 if data[i]["name"] == student_name:
                     print("This name already Exists.")
                     check = 1
                     break
+                
+            if not self.check_email(student_email):
+                check = 2
+                print("Email is not Valid")
+                
             if check == 0:
                 data["student"+str(no_of_students+1)] = {}
                 data["student"+str(no_of_students+1)]["name"] = student_name
@@ -196,6 +208,13 @@ class Library():
                 f.close()
 
                 print(f"Added New Student : \"{student_name}\".")
-
+                
+    def check_email(self,email):
+        e_pat = r"\"?([-a-zA-Z0-9.`?{}]+@\w+\.\w+)\"?"   
+        pattern = re.compile(e_pat)
+        if not re.match(pattern, email):
+            return False
+        return True
+                
 
 books = Library()
