@@ -10,8 +10,9 @@ class Library():
         print("1. Lend Book")
         print("2. Return Book")
         print("3. Search Book")
-        print("4. Add Book")
-        print("5. Register Student")
+        print("4. Book Info")
+        print("5. Add Book")
+        print("6. Register Student")
         a = False
 
         while(not a):
@@ -35,10 +36,14 @@ class Library():
                 a = True
                 break
             elif choice == 4:
-                self.add_book()
+                self.book_info()
                 a = True
                 break
             elif choice == 5:
+                self.add_book()
+                a = True
+                break
+            elif choice == 6:
                 self.register_student()
                 a = True
                 break
@@ -150,10 +155,33 @@ class Library():
                 if book_name.lower() in data[i]["name"].lower():
                     print(data[i]["name"])
                     count = count + 1
+                    
             if count == 0:
                 print("None")
+                
             f.close()
 
+    def book_info(self):
+        book_name = input("Enter the Name of the Book : ")
+        
+        with open("books_data.json") as f:
+            data = json.load(f)
+            count = 0
+            
+            for book in data:
+                if data[book]["name"].lower() == book_name.lower():
+                    count = 1
+                    print(f"Name : {book_name}")
+                    print("Author : " + data[book]["author"])
+                    print("Pages : " + str(data[book]["pages"]))
+                    print("Available : " + data[book]["available"].upper())
+                    break
+            
+            if count == 0:
+                print(f"No Books were found with the name \"{book_name}\"")
+                
+            f.close()
+        
 
     def add_book(self) -> None:
         book_name  = input("Enter the Book Name : ")
@@ -205,15 +233,19 @@ class Library():
                 with open("students_data.json","w") as j:
                     json.dump(data,j,indent = 2)
                     j.close()
+                    
                 f.close()
 
                 print(f"Added New Student : \"{student_name}\".")
                 
+    
     def check_email(self,email):
         e_pat = r"\"?([-a-zA-Z0-9.`?{}]+@\w+\.\w+)\"?"   
         pattern = re.compile(e_pat)
+        
         if not re.match(pattern, email):
             return False
+        
         return True
                 
 
