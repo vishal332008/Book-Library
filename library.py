@@ -13,15 +13,18 @@ class Library():
         print("4. Book Info")
         print("5. Add Book")
         print("6. Register Student")
+        print("0 to Exit")
         a = False
 
         while(not a):
             try:
                 choice = int(input("Enter your choice : "))
-            except:
-                choice = 0
+            except ValueError:
+                choice = -1
                 
-            if choice == 1:
+            if choice == 0:
+                break
+            elif choice == 1:
                 a = True
                 self.ask_student_info()
                 self.lend_book()
