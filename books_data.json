@@ -36,7 +36,7 @@
   },
   "book6": {
     "name": "Cringe Rhymes",
-    "pages": "1000",
+    "pages": 1000,
     "author": "Cocomelon",
     "available": "yes",
     "taken_by": "None"
